@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
 import Counter from './Counter'
-import { createStore } from 'redux'
+import Display from './Display'
+import { applyMiddleware, createStore } from 'redux'
 import counterReducer from './reducer';
 import { Provider } from 'react-redux'
+import logger from 'redux-logger'
 
 const estilo = {
     fontSize:'30px',
@@ -12,8 +14,11 @@ const estilo = {
     border:'none',
     color:'#fff'
 }
-
-let store = createStore(counterReducer)
+let store = createStore(
+  counterReducer,
+  //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  applyMiddleware(logger)
+)
 
 class App extends Component {
   render() {
@@ -21,6 +26,7 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <header className="App-header">
+            <Display/>
             <Counter estilo={estilo}/>
           </header>
         </div>
