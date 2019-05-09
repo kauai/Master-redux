@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
 import './App.css'
 import Counter from './Counter'
 import Display from './Display'
@@ -17,6 +16,7 @@ const estilo = {
 let store = createStore(
   counterReducer,
   //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  //USAND
   applyMiddleware(logger)
 )
 

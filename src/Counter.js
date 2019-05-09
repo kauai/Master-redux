@@ -6,8 +6,8 @@ const Counter = ({count, estilo, increment, decrement }) => {
     return (
       <div>
         <h2>Counter:{count}</h2>
-        <button onClick={increment} style={estilo}>+</button>
-        <button onClick={decrement} style={estilo}>-</button>
+        <button onClick={() => increment(2)} style={estilo}>+</button>
+        <button onClick={() => decrement(1)} style={estilo}>-</button>
       </div>
     )
 }
@@ -18,8 +18,8 @@ const mapStateToProps = ({ count }) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      increment:() => dispatch(increment),
-      decrement:() => dispatch(decrement),
+      increment:(value) => dispatch(increment(value)),
+      decrement:(value) => dispatch(decrement(value)),
     }
 }
 
