@@ -1,15 +1,14 @@
 const initialState = {
-    count:0
+    data:[],
+    isFetching:false
 }
-const counterReducer = (state = initialState,{ type, value }) => {
+const Reducer = (state = initialState,{ type }) => {
     switch(type) {
-        case 'INCREMENT':
-           return {...state,count:state.count + value}
-        case 'DECREMENT':
-           return {...state,count:state.count - value}
+        case 'LOAD_DATA':
+           return state
         default: 
         return state
     }
 }
 
-export default counterReducer
+export { Reducer }
