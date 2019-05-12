@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import './App.css'
 import { applyMiddleware, createStore } from 'redux'
+import thunk from 'redux-thunk'
 import { Reducer } from './reducer';
 import { Provider } from 'react-redux'
 import logger from 'redux-logger'
@@ -10,7 +10,7 @@ let store = createStore(
   Reducer,
   //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   //USANDO
-  applyMiddleware(logger)
+  applyMiddleware(thunk,logger)
 )
 
 class App extends Component {
