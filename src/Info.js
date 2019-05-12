@@ -34,7 +34,7 @@ class Info extends Component {
                       })}
                     </ul>
                     <ul>
-                      <li><h2>Lista de Usuarios</h2></li>
+                      <li><h2>Lista de Comentarios</h2></li>
                       {this.props.comments && this.props.comments
                       .map(item => {
                           return <li key={item.id}>{item.name}</li>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { applyMiddleware, createStore } from 'redux'
 import thunk from 'redux-thunk'
-import  Reducer  from './reducer';
+import  Reducer  from './reducers';
 import { Provider } from 'react-redux'
 import logger from 'redux-logger'
 import Info  from './Info';
