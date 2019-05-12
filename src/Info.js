@@ -5,7 +5,6 @@ import { loadData,loadDataC } from './actions';
 class Info extends Component {
 
   componentDidMount(){
-        //  this.setState({ isFetching: this.props.isFetching })
         this.props.loadData()
         this.props.loadDataC()
   }
