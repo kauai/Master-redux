@@ -5,7 +5,6 @@ const initialState = {
 }
 
 const ReducerUsers = (state = initialState,{ type, data }) => {
-    
     switch(type) {
         case 'LOAD_DATA_REQUEST':
            return {

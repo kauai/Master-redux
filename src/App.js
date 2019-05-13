@@ -4,25 +4,24 @@ import thunk from 'redux-thunk'
 import  Reducer  from './reducers';
 import { Provider } from 'react-redux'
 import logger from 'redux-logger'
-import Info  from './Info';
+// import Info  from './Info';
 
 let store = createStore(
   Reducer,
-  //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  //USANDO
-  applyMiddleware(thunk,logger)
+  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  applyMiddleware(logger)
 )
 
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
+       <Provider store={store}>
         <div className="App">
           <header className="App-header">
-            <Info/>
+            <h1>teste</h1>
           </header>
         </div>
-      </Provider>
+        </Provider>
     )
   }
 }
