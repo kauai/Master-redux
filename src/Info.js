@@ -1,12 +1,25 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { loadData,loadDataC } from './actions';
+import loading from './giphy.gif'
 
 class Info extends Component {
+
+  state = {
+    count:10,
+    countLoading:false
+  }
 
   componentDidMount(){
         this.props.loadData()
         this.props.loadDataC()
+  }
+
+  plus = () => {
+    this.setState({countLoading:true})
+      setTimeout(() => {
+        this.setState({count:this.state.count + 5,countLoading:false})
+      },2000)
   }
 
   // li = () => {
@@ -25,19 +38,24 @@ class Info extends Component {
         return <h1>Error</h1>
       }else{
         return <div>
-                  <ul>
+                  <ul className="loading">
                       <li><h2>Lista de Usuarios</h2></li>
                       {this.props.users && this.props.users
                       .map(item => {
-                          return <li key={item.id + 1}>{item.name}</li>
+                          return <li className="loading" key={item.id + 1}>{item.name}</li>
                       })}
                     </ul>
-                    <ul>
+                    <ul className="loading">
                       <li><h2>Lista de Comentarios</h2></li>
                       {this.props.comments && this.props.comments
                       .map(item => {
-                          return <li key={item.id}>{item.name}</li>
-                      })}
+                          return <li className="loading" key={item.id}>{item.name}</li>
+                      }).filter((item,key) => {
+                        return key <= this.state.count
+                      })
+                      }
+                      {this.state.countLoading && <img className="loading" src={loading}/>}
+                      <button onClick={this.plus}>Mais</button>
                     </ul>
                 </div>
       }
